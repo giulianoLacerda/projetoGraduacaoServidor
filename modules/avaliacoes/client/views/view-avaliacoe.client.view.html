@@ -1,0 +1,208 @@
+<section>
+  <div class="page-header">
+    <h1 ng-bind="vm.avaliacoe.name"></h1>
+    AACPD
+    <h2 ng-bind="vm.avaliacoe.aacpd"></h2>
+  </div>
+  <div class="pull-right"
+       ng-show="vm.avaliacoe.isCurrentUserOwner">
+
+  </div>
+  <small>
+    <em class="text-muted">
+      by
+      <span ng-if="vm.avaliacoe.user"
+            ng-bind="vm.avaliacoe.user.displayName"></span>
+    </em>
+  </small>
+  <p class="lead" ng-bind="vm.avaliacoe.content"></p>
+  <md-button class="md-button" md-colors="{background: 'teal-900'}"
+             ui-sref="avaliacoes.edit({ avaliacoeId: vm.avaliacoe._id })"
+             style="text-transform: capitalize">Editar</md-button>
+
+  <md-button class="md-button" md-colors="{background: 'teal-900'}"
+             ng-click="vm.remove();"
+             style="text-transform: capitalize">Remover</md-button>
+
+  <div>
+    <form name="vm.form.avaliacoeForm" class="form-horizontal" novalidate>
+
+      <fieldset>
+
+        <md-card class="thumbnail">
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline">Informações Gerais</span>
+            </md-card-title-text>
+          </md-card-title>
+          <md-card-content>
+
+            <!-- Line1 -->
+            <div class="row">
+              <!-- Col 1 -->
+              <div class="col-lg-4">
+                <md-input-container class="md-block" md-colors="{color: 'green-50', 'border-color': 'primary-600'}">
+                  <label>Nome</label>
+                  <input md-colors="{color: 'teal-900'}" name="description" ng-model="vm.avaliacoe.name" disabled>
+                </md-input-container>
+              </div>
+
+              <!-- Col 2 -->
+              <div class="col-lg-4">
+                <md-input-container class="md-block">
+                  <label>Bairro</label>
+                  <input md-colors="{color: 'teal-900'}" name="bairro" ng-model="vm.avaliacoe.bairro" disabled>
+                </md-input-container>
+              </div>
+
+              <!-- Col 3 -->
+              <div class="col-lg-4">
+                <md-input-container class="md-block">
+                  <label>Estado</label>
+                  <md-select md-colors="{color: 'teal-900'}" name="estado" ng-model="vm.avaliacoe.estado" disabled>
+                    <md-option value="AC">Acre</md-option>
+                    <md-option value="AL">Alagoas</md-option>
+                    <md-option value="AP">Amapá</md-option>
+                    <md-option value="AM">Amazonas</md-option>
+                    <md-option value="BA">Bahia</md-option>
+                    <md-option value="CE">Ceará</md-option>
+                    <md-option value="DF">Distrito Federal</md-option>
+                    <md-option value="ES">Espírito Santo</md-option>
+                    <md-option value="GO">Goiás</md-option>
+                    <md-option value="MA">Maranhão</md-option>
+                    <md-option value="MT">Mato Grosso</md-option>
+                    <md-option value="MS">Mato Grosso do Sul</md-option>
+                    <md-option value="MG">Minas Gerais</md-option>
+                    <md-option value="PA">Pará</md-option>
+                    <md-option value="PB">Paraíba</md-option>
+                    <md-option value="PR">Paraná</md-option>
+                    <md-option value="PE">Pernambuco</md-option>
+                    <md-option value="PI">Piauí</md-option>
+                    <md-option value="RJ">Rio de Janeiro</md-option>
+                    <md-option value="RN">Rio Grande do Norte</md-option>
+                    <md-option value="RS">Rio Grande do Sul</md-option>
+                    <md-option value="RO">Rondônia</md-option>
+                    <md-option value="RR">Roraima</md-option>
+                    <md-option value="SC">Santa Catarina</md-option>
+                    <md-option value="SP">São Paulo</md-option>
+                    <md-option value="SE">Sergipe</md-option>
+                    <md-option value="TO">Tocantins</md-option>
+                  </md-select>
+                </md-input-container>
+              </div>
+
+            </div>
+
+            <!-- Line 2 -->
+            <div class="row">
+              <!-- Col 1 -->
+              <div class="col-lg-4">
+                <md-input-container class="md-block">
+                  <label>Fazenda/Sítio</label>
+                  <input md-colors="{color: 'teal-900'}" id="fazenda" name="fazenda" ng-model="vm.avaliacoe.fazenda" disabled>
+                </md-input-container>
+              </div>
+
+              <!-- Col 2 -->
+              <div class="col-lg-4">
+                <md-input-container class="md-block">
+                  <label>Lavoura</label>
+                  <input md-colors="{color: 'teal-900'}" id="lavoura" name="lavoura" ng-model="vm.avaliacoe.lavoura" disabled>
+                </md-input-container>
+              </div>
+            </div>
+
+          </md-card-content>
+        </md-card>
+
+        <md-card class="thumbnail" ng-show="vm.avaliacoe._id">
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline">Tabela Severidades</span>
+            </md-card-title-text>
+          </md-card-title>
+          <md-card-content>
+
+            <!-- Título 2 -->
+            <div class="hero-unit">
+              <h4>Tabela de Severidades</h4>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-12">
+                <table class="table table-bordered">
+                  <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th class="text-center" scope="col">Dia</th>
+                    <th class="text-center" scope="col">Severidade (%)</th>
+                    <th class="text-center" scope="col">Imagem</th>
+                    <th class="text-center" scope="col">Ações</th>
+                  </tr>
+                  </thead>
+
+                  <tboody>
+                    <tr ng-repeat="a in vm.count" class="text-center">
+                      <th scope="row">{{a+1}}</th>
+                      <td>
+                        <div>{{vm.avaliacoe.dia[a]}}</div>
+
+                      </td>
+                      <td>
+                        <div>{{vm.avaliacoe.severidade[a]}}</div>
+                      </td>
+
+                      <td>
+                        <img ng-src="{{vm.avaliacoe.imagem[a] ? vm.avaliacoe.imagem[a]+'_segmented.png' : vm.imgDefault[a]+'_segmented.png'}}" alt="vazio" class="img-thumbnail avaliacoes-image-table" ng-click="clicouAqui();">
+                      </td>
+                      <td>
+                      </td>
+                    </tr>
+                  </tboody>
+                </table>
+              </div>
+            </div>
+          </md-card-content>
+        </md-card>
+        <div class="row">
+          <div ng-repeat="a in vm.count" class="col-md-4">
+            <div class="thumbnail">
+              <a href="/w3images/lights.jpg">
+                <img ng-src="{{vm.avaliacoe.imagem[a] ? vm.avaliacoe.imagem[a]+'_segmented.png' : vm.imgDefault[a]+'_segmented.png'}}"
+                     class="avaliacoes-view" alt="Lights">
+                <div class="caption">
+                  <p>Dia: {{vm.avaliacoe.dia[a]}}</p>
+                  <p>Severidade: {{vm.avaliacoe.severidade[a]}}%</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <!--
+  <img id="myImg" src="/modules/avaliacoes/client/img/default.jpg" alt="Trolltunga, Norway" width="300" height="200">
+
+
+  <div id="myModal" class="modal">
+
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="close">
+          <span class="glyphicon glyphicon-remove"></span>
+        </div>
+      </div>
+    </div>
+
+
+    <img class="modal-content" id="img01">
+
+
+    <div id="caption"></div>
+  </div>
+
+  </div>-->
+
+</section>

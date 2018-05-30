@@ -1,0 +1,18 @@
+<section ng-controller="ArticlesController" ng-init="findOne()">
+  <div class="page-header">
+    <h1 ng-bind="article.title"></h1>
+  </div>
+  <div class="pull-right" ng-show="authentication.user._id == article.user._id">
+    <button class="btn btn-default" ui-sref="articles.edit({articleId: article._id})">Atualizar</button>
+    <button class="btn btn-default ng-click="remove();">Remover</button>
+  </div>
+  <small>
+    <em class="text-muted">
+      Posted on
+      <span ng-bind="article.created | date:'mediumDate'"></span>
+      by
+      <span ng-bind="article.user.displayName"></span>
+    </em>
+  </small>
+  <p class="lead" ng-bind="article.content"></p>
+</section>

@@ -1,0 +1,94 @@
+<section>
+  <div class="page-header">
+    <h1>Classificação</h1><h5>{{vm.classificador.name}}</h5>
+  </div>
+  <span class="label label-danger" data-ng-click="vm.remove()">Excluir</span>
+
+  <div ng-cloak>
+    <md-content>
+      <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="Simplificada">
+          <md-content class="md-padding">
+
+  <div>
+    <table border="1" class="table table-striped">
+      <thead>
+      <tr>
+        <th>Classe</th>
+        <th>Percentual</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>#0</td>
+        <td>{{vm.classificador.resultado[0]}}</td>
+      </tr>
+      <tr>
+        <td>#1</td>
+        <td>{{vm.classificador.resultado[1]}}</td>
+      </tr>
+      <tr>
+        <td>#1</td>
+        <td>{{vm.classificador.resultado[2]}}</td>
+      </tr>
+      <tr>
+        <td>#3</td>
+        <td>{{vm.classificador.resultado[3]}}</td>
+      </tr>
+      <tr>
+        <td>#4</td>
+        <td>{{vm.classificador.resultado[4]}}</td>
+      </tr>
+      <tr>
+        <td>#5</td>
+        <td>{{vm.classificador.resultado[5]}}</td>
+      </tr>
+      <tr>
+        <td>#6</td>
+        <td>{{vm.classificador.resultado[6]}}</td>
+      </tr>
+      <tr>
+        <td>#7</td>
+        <td>{{vm.classificador.resultado[7]}}</td>
+      </tr>
+      <tr>
+        <td>#8</td>
+        <td>{{vm.classificador.resultado[8]}}</td>
+      </tr>
+      <tr>
+        <td>#9</td>
+        <td>{{vm.classificador.resultado[9]}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+          </md-content>
+        </md-tab>
+      </md-tabs>
+    </md-content>
+  </div>
+    <!--<small>
+      <div>
+      <img ng-src="{{vm.classificador.image}}" alt="vazio" class="img-thumbnail cliente-profile-picture">
+      </div>
+      <em class="text-muted">
+        Posted on
+        <span data-ng-bind="vm.classificador.created | date:'mediumDate'"></span>
+        by
+        <span data-ng-if="vm.classificador.user"
+              data-ng-bind="vm.classificador.user.displayName"></span>
+        <span data-ng-if="!vm.classificador.user">Deleted User</span>
+      </em>
+      <div class="pull-right"
+           data-ng-show="vm.classificador.isCurrentUserOwner">
+        <a class="btn btn-primary"
+           data-ui-sref="classificadors.edit({ classificadorId: vm.classificador._id })">
+          <i class="glyphicon glyphicon-edit"></i>
+        </a>
+        <a class="btn btn-primary" data-ng-click="vm.remove()">
+          <i class="glyphicon glyphicon-trash"></i>
+        </a>
+      </div>
+    </small>
+    <p class="lead" data-ng-bind="vm.classificador.content"></p>-->
+</section>

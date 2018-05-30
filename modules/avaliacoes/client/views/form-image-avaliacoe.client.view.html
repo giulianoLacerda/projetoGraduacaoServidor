@@ -1,0 +1,199 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.avaliacoe._id ? 'Atualizar Avaliação - AACPD' : 'Nova Avaliação - AACPD'}}</h1>
+  </div>
+
+  <div>
+    <form name="vm.form.avaliacoeForm" class="form-horizontal" novalidate>
+
+      <fieldset>
+
+        <md-card>
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline">Informações Gerais</span>
+            </md-card-title-text>
+          </md-card-title>
+          <md-card-content>
+
+            <!-- Line1 -->
+            <div class="row">
+              <!-- Col 1 -->
+              <div class="col-lg-4">
+                <md-input-container class="md-block" md-colors="{color: 'green-50', 'border-color': 'primary-600'}">
+                  <label>Nome</label>
+                  <input required name="description" ng-model="vm.avaliacoe.name">
+                </md-input-container>
+              </div>
+
+              <!-- Col 2 -->
+              <div class="col-lg-4">
+                <md-input-container class="md-block">
+                  <label>Bairro</label>
+                  <input required name="bairro" ng-model="vm.avaliacoe.bairro">
+                </md-input-container>
+              </div>
+
+              <!-- Col 3 -->
+              <div class="col-lg-4">
+                <md-input-container class="md-block">
+                  <label>Estado</label>
+                  <md-select name="estado" ng-model="vm.avaliacoe.estado" required>
+                    <md-option value="AC">Acre</md-option>
+                    <md-option value="AL">Alagoas</md-option>
+                    <md-option value="AP">Amapá</md-option>
+                    <md-option value="AM">Amazonas</md-option>
+                    <md-option value="BA">Bahia</md-option>
+                    <md-option value="CE">Ceará</md-option>
+                    <md-option value="DF">Distrito Federal</md-option>
+                    <md-option value="ES">Espírito Santo</md-option>
+                    <md-option value="GO">Goiás</md-option>
+                    <md-option value="MA">Maranhão</md-option>
+                    <md-option value="MT">Mato Grosso</md-option>
+                    <md-option value="MS">Mato Grosso do Sul</md-option>
+                    <md-option value="MG">Minas Gerais</md-option>
+                    <md-option value="PA">Pará</md-option>
+                    <md-option value="PB">Paraíba</md-option>
+                    <md-option value="PR">Paraná</md-option>
+                    <md-option value="PE">Pernambuco</md-option>
+                    <md-option value="PI">Piauí</md-option>
+                    <md-option value="RJ">Rio de Janeiro</md-option>
+                    <md-option value="RN">Rio Grande do Norte</md-option>
+                    <md-option value="RS">Rio Grande do Sul</md-option>
+                    <md-option value="RO">Rondônia</md-option>
+                    <md-option value="RR">Roraima</md-option>
+                    <md-option value="SC">Santa Catarina</md-option>
+                    <md-option value="SP">São Paulo</md-option>
+                    <md-option value="SE">Sergipe</md-option>
+                    <md-option value="TO">Tocantins</md-option>
+                  </md-select>
+                </md-input-container>
+              </div>
+
+            </div>
+
+            <!-- Line 2 -->
+            <div class="row">
+              <!-- Col 1 -->
+              <div class="col-lg-4">
+                <md-input-container class="md-block">
+                  <label>Fazenda/Sítio</label>
+                  <input required id="fazenda" name="fazenda" ng-model="vm.avaliacoe.fazenda">
+                </md-input-container>
+              </div>
+
+              <!-- Col 2 -->
+              <div class="col-lg-4">
+                <md-input-container class="md-block">
+                  <label>Lavoura</label>
+                  <input id="lavoura" name="lavoura" ng-model="vm.avaliacoe.lavoura">
+                </md-input-container>
+              </div>
+            </div>
+
+          </md-card-content>
+        </md-card>
+
+        <md-card ng-show="vm.avaliacoe._id">
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline">Tabela Severidades</span>
+            </md-card-title-text>
+          </md-card-title>
+          <md-card-content>
+            <ul class="nav nav-tabs">
+              <li>
+                <a ng-show="vm.avaliacoe._id" ui-sref="avaliacoes.edit({ avaliacoeId: vm.avaliacoe._id })">Sem Imagem</a>
+                <a ng-show="!vm.avaliacoe._id" ui-sref="avaliacoes.create">Sem Imagem</a>
+              </li>
+              <li class="active"><a>Com Imagem</a></li>
+            </ul>
+
+            <!-- Título 2 -->
+            <div class="hero-unit">
+              <h4>Tabela de Severidades</h4>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-12">
+                <table class="table table-bordered">
+                  <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th class="text-center" scope="col">Dia</th>
+                    <th class="text-center" scope="col">Severidade (%)</th>
+                    <th class="text-center" scope="col">Imagem</th>
+                    <th class="text-center" scope="col">Ações</th>
+                  </tr>
+                  </thead>
+
+                  <tboody>
+                    <tr ng-repeat="a in vm.count" class="text-center">
+                      <th scope="row">{{a+1}}</th>
+                      <td>
+                        <div ng-hide="vm.avaliacoe.control<a">{{vm.avaliacoe.dia[a]}}</div>
+
+                        <md-input-container ng-show="vm.avaliacoe.control<a" flex="20">
+                          <label>dia</label>
+                          <input g-show="vm.avaliacoe.control<a"
+                                 name="dia" type="number"
+                                 min="0" id="dia" ng-model="vm.avaliacoe.dia[a]">
+                        </md-input-container>
+
+                      </td>
+                      <td>
+                        <div>{{vm.avaliacoe.severidade[a]}}</div>
+                      </td>
+
+                      <td>
+                        <div layout="row" layout-sm="column" layout-align="space-around">
+                          <md-progress-circular path
+                                                ng-show="(a==vm.count.length-1 && vm.carregando)"
+                                                md-diameter="40px"></md-progress-circular>
+                        </div>
+                        <img ng-show="!(a==vm.count.length-1 && vm.carregando)" ng-src="{{vm.avaliacoe.imagem[a] ? vm.avaliacoe.imagem[a]+'_segmented.png' : vm.imgDefault[a]}}" alt="vazio" class="img-thumbnail avaliacoes-image-table">
+                      </td>
+                      <td>
+                        <span ng-show="!vm.avaliacoe.imagem[a] && vm.avaliacoe.control<a && (vm.imgDefault[a]===' ' || vm.imgDefault[a]===undefined)" class="btn btn-default btn-file glyphicon glyphicon-plus" type="button">
+                          <input type="file" nv-file-select uploader="uploaderImage" ng-click="vm.selectLine(a);">
+                        </span>
+
+                        <md-button md-colors="{background: 'teal-900'}" class="md-icon-button" ng-show="!vm.avaliacoe.imagem[a] && vm.avaliacoe.control<a && !(vm.imgDefault[a]===' ' || vm.imgDefault[a]===undefined)" ng-click="cancelUpload(a);">
+                          <span class="glyphicon glyphicon-remove"></span>
+                        </md-button>
+
+                        <!--<button ng-show="!vm.avaliacoe.imagem[a] && vm.avaliacoe.control<a && !(vm.imgDefault[a]===' ' || vm.imgDefault[a]===undefined)" ng-click="cancelUpload(a);" class="btn btn-default" type="button">
+                          <span class="glyphicon glyphicon-remove"></span>
+                        </button>-->
+
+                        <!--<img ng-show="a==vm.count.length-1 && vm.carregando" ng-src="{{vm.imageLoad}}" alt="vazio">-->
+
+                        <md-button md-colors="{background: 'teal-900'}" class="md-icon-button" ng-show="!vm.avaliacoe.imagem[a] && vm.avaliacoe.control<a && !vm.carregando && vm.blockBtnUp" ng-click="uploadProfilePicture();">
+                          <span class="glyphicon glyphicon-refresh"></span>
+                        </md-button>
+
+                        <!--<button ng-show="!vm.avaliacoe.imagem[a] && vm.avaliacoe.control<a && !vm.carregando && vm.blockBtnUp" class="btn btn-default" type="button" ng-click="uploadProfilePicture();">
+                          <span class="glyphicon glyphicon-refresh"></span>
+                        </button>-->
+                      </td>
+                    </tr>
+                  </tboody>
+                </table>
+              </div>
+            </div>
+          </md-card-content>
+          <md-card-actions layout="row" layout-align="end center">
+            <md-button ng-show="vm.blockBtnAddLine"
+                       class="md-button" md-colors="{background: 'teal-50'}"
+                       ng-click="vm.addLine();" style="text-transform: capitalize">Adicionar Linha</md-button>
+          </md-card-actions>
+        </md-card>
+
+        <md-button class="md-button" md-colors="{background: 'teal-900'}"
+                   ng-click="vm.save(vm.form.avaliacoeForm.$valid,1)"
+                   style="text-transform: capitalize">
+          {{vm.avaliacoe._id ? 'Atualizar' : 'Prosseguir'}}</md-button>
+      </fieldset>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,255 @@
+<section >
+  <div class="page-header" >
+    <h1>{{vm.avaliacoe._id ? 'Atualizar Avaliação - AACPD' : 'Nova Avaliação - AACPD'}}</h1>
+  </div>
+  <form name="vm.form.avaliacoeForm" class="form-horizontal" novalidate>
+
+    <fieldset>
+
+      <md-card>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Informações Gerais</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <div class="row">
+
+            <!-- Col 1 -->
+            <div class="col-lg-4">
+
+              <md-input-container class="md-block" md-colors="{color: 'green-50', 'border-color': 'primary-600'}">
+                <label>Nome</label>
+                <input required name="description" ng-model="vm.avaliacoe.name">
+                <div ng-messages="projectForm.description.$error">
+                  <div ng-message="required">This is required.</div>
+                </div>
+              </md-input-container>
+
+              <!--<label class="control-label" for="name">Nome</label>
+              <input name="name" type="text" ng-model="vm.avaliacoe.name" id="name" class="form-control" placeholder="Nome" required>-->
+            </div>
+
+
+
+            <!-- Col 2 -->
+            <div class="col-lg-4">
+              <md-input-container class="md-block">
+                <label>Bairro</label>
+                <input required name="bairro" ng-model="vm.avaliacoe.bairro">
+                <div ng-messages="projectForm.clientName.$error">
+                  <div ng-message="required">This is required.</div>
+                </div>
+              </md-input-container>
+
+              <!--<label class="control-label" for="bairro">Bairro</label>
+              <input name="bairro" type="text" ng-model="vm.avaliacoe.bairro" id="bairro" class="form-control" placeholder="Bairro" required>-->
+            </div>
+
+            <!-- Col 3 -->
+            <div class="col-lg-4">
+
+              <md-input-container class="md-block" for="estado">
+                <label>Estado</label>
+                <md-select id="estado" name="estado" ng-model="vm.avaliacoe.estado" required>
+                  <md-option value="AC">Acre</md-option>
+                  <md-option value="AL">Alagoas</md-option>
+                  <md-option value="AP">Amapá</md-option>
+                  <md-option value="AM">Amazonas</md-option>
+                  <md-option value="BA">Bahia</md-option>
+                  <md-option value="CE">Ceará</md-option>
+                  <md-option value="DF">Distrito Federal</md-option>
+                  <md-option value="ES">Espírito Santo</md-option>
+                  <md-option value="GO">Goiás</md-option>
+                  <md-option value="MA">Maranhão</md-option>
+                  <md-option value="MT">Mato Grosso</md-option>
+                  <md-option value="MS">Mato Grosso do Sul</md-option>
+                  <md-option value="MG">Minas Gerais</md-option>
+                  <md-option value="PA">Pará</md-option>
+                  <md-option value="PB">Paraíba</md-option>
+                  <md-option value="PR">Paraná</md-option>
+                  <md-option value="PE">Pernambuco</md-option>
+                  <md-option value="PI">Piauí</md-option>
+                  <md-option value="RJ">Rio de Janeiro</md-option>
+                  <md-option value="RN">Rio Grande do Norte</md-option>
+                  <md-option value="RS">Rio Grande do Sul</md-option>
+                  <md-option value="RO">Rondônia</md-option>
+                  <md-option value="RR">Roraima</md-option>
+                  <md-option value="SC">Santa Catarina</md-option>
+                  <md-option value="SP">São Paulo</md-option>
+                  <md-option value="SE">Sergipe</md-option>
+                  <md-option value="TO">Tocantins</md-option>
+                </md-select>
+              </md-input-container>
+
+              <!--<label class="control-label" for="estado">Estado</label>
+              <select name="estado" class="form-control" ng-model="vm.avaliacoe.estado" id="estado" placeholder="UF" required>
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+              </select>-->
+            </div>
+
+          </div>
+
+          <!-- Line 2 -->
+          <div class="row">
+            <!-- Col 1 -->
+            <div class="col-lg-4">
+
+              <md-input-container class="md-block">
+                <label>Fazenda/Sítio</label>
+                <input required id="fazenda" name="fazenda" ng-model="vm.avaliacoe.fazenda">
+                <div ng-messages="projectForm.description.$error">
+                  <div ng-message="required">This is required.</div>
+                </div>
+              </md-input-container>
+
+              <!--<label class="control-label" for="fazenda">Fazenda/Sítio</label>
+              <input name="fazenda" type="text" ng-model="vm.avaliacoe.fazenda" id="fazenda" class="form-control" placeholder="Fazenda/Sítio" required>-->
+            </div>
+
+            <!-- Col 2 -->
+            <div class="col-lg-4">
+
+              <md-input-container class="md-block">
+                <label>Lavoura</label>
+                <input id="lavoura" name="lavoura" ng-model="vm.avaliacoe.lavoura">
+                <div ng-messages="projectForm.description.$error">
+                  <div ng-message="required">This is required.</div>
+                </div>
+              </md-input-container>
+
+              <!--<label class="control-label" for="lavoura">Lavoura</label>
+              <input name="lavoura" type="text" ng-model="vm.avaliacoe.lavoura" id="lavoura" class="form-control" placeholder="Lavoura" required>-->
+            </div>
+          </div>
+
+          </div>
+        </md-card-content>
+      </md-card>
+
+      <md-card ng-show="vm.avaliacoe._id">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Tabela Severidades</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <ul class="nav nav-tabs" ng-show="vm.avaliacoe._id">
+            <li class="active">
+              <a>Sem Imagem</a>
+            </li>
+            <li>
+              <a ng-show="vm.avaliacoe._id" ui-sref="avaliacoes.editi({ avaliacoeId: vm.avaliacoe._id })">Com Imagem</a>
+              <!--<a ng-show="!vm.avaliacoe._id" ui-sref="avaliacoes.createi">Com Imagem</a>-->
+            </li>
+          </ul>
+
+          <!-- Título 2 -->
+          <div ng-show="vm.avaliacoe._id"class="hero-unit">
+            <h4>Tabela de Severidades</h4>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <table class="table table-bordered">
+                <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th class="text-center" scope="col">Dia</th>
+                  <th class="text-center" scope="col">Severidade (%)</th>
+                  <th class="text-center" scope="col">Imagem</th>
+                  <th class="text-center" scope="col">Ações</th>
+                </tr>
+                </thead>
+
+                <tboody>
+                  <tr ng-repeat="a in vm.count" class="text-center">
+                    <th scope="row">{{a+1}}</th>
+                    <td>
+                      <div ng-hide="vm.avaliacoe.control<a">{{vm.avaliacoe.dia[a]}}</div>
+                      <md-input-container ng-show="vm.avaliacoe.control<a" flex="20">
+                        <label>dia</label>
+                        <input g-show="vm.avaliacoe.control<a"
+                               name="dia" type="number"
+                               min="0" id="dia" ng-model="vm.avaliacoe.dia[a]">
+                      </md-input-container>
+
+                      <!--<input ng-show="vm.avaliacoe.control<a" name="dia" type="number" min="0"
+                             ng-model="vm.avaliacoe.dia[a]"
+                             id="dia" class="form-control"
+                             placeholder="Dia">-->
+
+                    </td>
+                    <td>
+                      <div ng-hide="vm.avaliacoe.control<a">{{vm.avaliacoe.severidade[a]}}</div>
+
+                      <md-input-container ng-show="vm.avaliacoe.control<a" flex="20">
+                        <label>%</label>
+                        <input ng-show="vm.avaliacoe.control<a"
+                               name="severidade" type="number"
+                               min="0" max="100" id="severidade" ng-model="vm.avaliacoe.severidade[a]">
+                      </md-input-container>
+
+                      <!--<input ng-show="vm.avaliacoe.control<a" name="severidade" type="number" min="0" max="100"
+                             ng-model="vm.avaliacoe.severidade[a]"
+                             id="severidade" class="form-control"
+                             placeholder="Severidade">-->
+                    </td>
+
+                    <td>
+                      <img ng-src="{{vm.avaliacoe.imagem[a] ? vm.avaliacoe.imagem[a]+'_segmented.png' : vm.imgDefault[a]+'_segmented.png'}}" alt="vazio" class="img-thumbnail avaliacoes-image-table">
+                    </td>
+                    <td>
+
+                    </td>
+                  </tr>
+                </tboody>
+              </table>
+            </div>
+          </div>
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button md-colors="{background: 'teal-50'}"
+                     ng-click="vm.addLine();"
+                     style="text-transform: capitalize">Adicionar Linha</md-button>
+
+          <md-button md-colors="{background: 'teal-50'}"
+                     ng-click="vm.rmvLine();"
+                     style="text-transform: capitalize">Remover Linha</md-button>
+        </md-card-actions>
+      </md-card>
+
+      <md-button class="md-button" md-colors="{background: 'teal-900'}"
+                 ng-click="vm.save(vm.form.avaliacoeForm.$valid,0)"
+                 style="text-transform: capitalize">
+        {{vm.avaliacoe._id ? 'Atualizar' : 'Prosseguir'}}</md-button>
+    </fieldset>
+  </form>
+  </div>
+</section>
+

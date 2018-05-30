@@ -1,0 +1,9 @@
+@media (min-width: 992px) {
+  .nav-users {
+    position: fixed;
+  }
+}
+.cliente-profile-picture {
+  min-height: 450px;
+  max-height: 450px;
+}

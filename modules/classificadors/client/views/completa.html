@@ -1,0 +1,169 @@
+<section>
+  <div class="page-header">
+    <h1>Classificação</h1><h5>{{vm.classificador.name}}</h5>
+  </div>
+  <ul class="nav nav-tabs nav-justified">
+    <li role="presentation"><a class="text-black" data-ui-sref="classificadors.view({ classificadorId: vm.classificador._id })">Simplificada</a></li>
+    <li role="presentation" class="active"><a>Completa</a></li>
+  </ul>
+  <div>
+    <h5></h5>
+  </div>
+  <div>
+      <table border="1" class="table table-striped">
+        <thead>
+        <tr>
+          <th>Peneira</th>
+          <th>Quantidade</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>#+19</td>
+          <td>{{(vm.classificador.peneiras.mais19/vm.classificador.total)*100}}</td>
+        </tr>
+        <tr>
+          <td>#19</td>
+          <td>{{(vm.classificador.peneiras.p19/vm.classificador.total)*100}}</td>
+        </tr>
+        <tr>
+          <td>#18</td>
+          <td>{{(vm.classificador.peneiras.p18/vm.classificador.total)*100}}</td>
+        </tr>
+        <tr>
+          <td>#17</td>
+          <td>{{(vm.classificador.peneiras.p17/vm.classificador.total)*100}}</td>
+        </tr>
+        <tr>
+          <td>#16</td>
+          <td>{{(vm.classificador.peneiras.p16/vm.classificador.total)*100}}</td>
+        </tr>
+        <tr>
+          <td>#15</td>
+          <td>{{(vm.classificador.peneiras.p15/vm.classificador.total)*100}}</td>
+        </tr>
+        <tr>
+          <td>#14</td>
+          <td>{{(vm.classificador.peneiras.p14/vm.classificador.total)*100}}</td>
+        </tr>
+        <tr>
+          <td>#13</td>
+          <td>{{(vm.classificador.peneiras.p13/vm.classificador.total)*100}}</td>
+        </tr>
+        <tr>
+          <td>#12</td>
+          <td>{{(vm.classificador.peneiras.p12/vm.classificador.total)*100}}</td>
+        </tr>
+        <tr>
+          <td>#-12</td>
+          <td>{{(vm.classificador.peneiras.menos12/vm.classificador.total)*100}}</td>
+        </tr>
+        </tbody>
+      </table>
+      </div>
+  <div>
+  <table border="1" class="table table-striped">
+    <thead>
+    <tr>
+      <th>Grão</th>
+      <th>Porcentagem (%)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Ardido</td>
+      <td>{{(vm.classificador.graos.ardido/vm.classificador.total)*100}}</td>
+    </tr>
+    <tr>
+      <td>Brocado</td>
+      <td>{{(vm.classificador.graos.brocado/vm.classificador.total)*100}}</td>
+    </tr>
+    <tr>
+      <td>Casca</td>
+      <td>{{(vm.classificador.graos.casca/vm.classificador.total)*100}}</td>
+    </tr>
+    <tr>
+      <td>Chocho</td>
+      <td>{{(vm.classificador.graos.chocho/vm.classificador.total)*100}}</td>
+    </tr>
+    <tr>
+      <td>Coco</td>
+      <td>{{(vm.classificador.graos.coco/vm.classificador.total)*100}}</td>
+    </tr>
+    <tr>
+      <td>Concha</td>
+      <td>{{(vm.classificador.graos.concha/vm.classificador.total)*100}}</td>
+    </tr>
+    <tr>
+      <td>Marinheiro</td>
+      <td>{{(vm.classificador.graos.marinheiro/vm.classificador.total)*100}}</td>
+    </tr>
+    <tr>
+      <td>Normal</td>
+      <td>{{(vm.classificador.graos.normal/vm.classificador.total)*100}}</td>
+    </tr>
+    <tr>
+      <td>Pau</td>
+      <td>{{(vm.classificador.graos.pau/vm.classificador.total)*100}}</td>
+    </tr>
+    <tr>
+      <td>Pedra</td>
+      <td>{{(vm.classificador.graos.pedra/vm.classificador.total)*100}}</td>
+    </tr>
+    <tr>
+      <td>Preto</td>
+      <td>{{(vm.classificador.graos.preto/vm.classificador.total)*100}}</td>
+    </tr>
+    <tr>
+      <td>Quebrado</td>
+      <td>{{(vm.classificador.graos.quebrado/vm.classificador.total)*100}}</td>
+    </tr>
+    <tr>
+      <td>Verde</td>
+      <td>{{(vm.classificador.graos.verde/vm.classificador.total)*100}}</td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+  <div>
+    <table border="1" class="table table-striped">
+      <thead>
+      <tr>
+        <th>Defeitos</th>
+        <th>Tipo</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>{{vm.classificador.defeitos}}</td>
+        <td>{{vm.classificador.tipo}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <!--<small>
+    <div>
+    <img ng-src="{{vm.classificador.image}}" alt="vazio" class="img-thumbnail cliente-profile-picture">
+    </div>
+    <em class="text-muted">
+      Posted on
+      <span data-ng-bind="vm.classificador.created | date:'mediumDate'"></span>
+      by
+      <span data-ng-if="vm.classificador.user"
+            data-ng-bind="vm.classificador.user.displayName"></span>
+      <span data-ng-if="!vm.classificador.user">Deleted User</span>
+    </em>
+    <div class="pull-right"
+         data-ng-show="vm.classificador.isCurrentUserOwner">
+      <a class="btn btn-primary"
+         data-ui-sref="classificadors.edit({ classificadorId: vm.classificador._id })">
+        <i class="glyphicon glyphicon-edit"></i>
+      </a>
+      <a class="btn btn-primary" data-ng-click="vm.remove()">
+        <i class="glyphicon glyphicon-trash"></i>
+      </a>
+    </div>
+  </small>
+  <p class="lead" data-ng-bind="vm.classificador.content"></p>-->
+</section>
+

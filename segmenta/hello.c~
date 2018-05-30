@@ -1,0 +1,6 @@
+#include <stdio.h>
+
+int main(){
+	printf("Ta rodando\n");
+	return 0;
+}
